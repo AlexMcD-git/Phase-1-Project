@@ -34,7 +34,11 @@ const renderChamp = (champion)=>{
 }
 
 const mouseoverChampionFunction = (event)=>{
-
+  const name = document.getElementById("name");
+  console.log(event);
+  name.innerHTML = event.target.title;
+  const pic = document.getElementById("profpic");
+  pic.src = event.target.src;
 }
 
 const clickChampionFunction = (event)=>{

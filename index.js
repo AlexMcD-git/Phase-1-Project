@@ -21,11 +21,12 @@ function fetchData(){
 
 const renderChamp = (champion)=>{
   const picURL = (champion.image.full)
+  console.log(champion)
   const champDiv = document.createElement('span')
   const pic = document.createElement('img')
   champDiv.appendChild(pic)
   pic.src = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
-  pic.alt = champion
+  pic.title = champion.id
   pic.addEventListener('mouseover', mouseoverChampionFunction)
   pic.addEventListener('click', clickChampionFunction)
   document.getElementById('champs').appendChild(champDiv)

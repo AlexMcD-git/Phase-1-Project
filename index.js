@@ -1,24 +1,26 @@
-const buyableItems = []
+const championsArray = []
 
-// hi alex i hope this works
-//it does
+document.addEventListener('DOMContentLoaded', fetchData)
 
-
-document.addEventListener('DOMContentLoaded', () => {
+function fetchData(){
   fetch(`http://ddragon.leagueoflegends.com/cdn/12.7.1/data/en_US/champion.json`)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      championsObj = data['data']
-      console.log(championsObj)
-      for (champions in championsObj) { renderChamp(champions) }
-    })
+  .then((response)=>{
+    return response.json();
+  })
+  .then((data)=>{
+    championsObj = data['data']
 
-})
+    for (champions in championsObj) { 
+      championsArray.push(championsObj[champions]) 
+    }
+    console.log(championsObj)
+    console.log(championsArray)
+    championsArray.forEach(renderChamp)
+  })
+}
 
 const renderChamp = (champion)=>{
-  const picURL = (championsObj[`${champion}`].image.full)
+  const picURL = (champion.image.full)
   const champDiv = document.createElement('div')
   const pic = document.createElement('img')
   champDiv.appendChild(pic)
@@ -29,12 +31,23 @@ const renderChamp = (champion)=>{
   document.getElementById('champs').appendChild(champDiv)
 }
 
-const mouseoverFunction = (event)=>{
-  
+const mouseoverChampionFunction = (event)=>{
+
 }
 
 const clickChampionFunction = (event)=>{
+  console.log(event.target.alt)
+  const main = document.querySelector('main')
+  main.innerHTML = ''
+  const name = document.createElement('h2')
+  const title = document.createElement('h3')
+  const splashPic = document.createElement('img')
+  
+  const statsObj = {}//Reference the champion's stats object
+  const statsList = document.createElement('ul')
+  //for...in on statsObj, append li element to statsList
 
+  main.append(name, title, splashPic, statsList)
 }
 
 

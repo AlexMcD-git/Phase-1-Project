@@ -26,20 +26,25 @@ const renderChamp = (champion)=>{
   const pic = document.createElement('img')
   champDiv.appendChild(pic)
   pic.src = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
-  pic.title = champion.id
+  pic.title = `${champion.id}
+  ${champion.title}`
   pic.addEventListener('mouseover', mouseoverChampionFunction)
   pic.addEventListener('click', clickChampionFunction)
   document.getElementById('champs').appendChild(champDiv)
 }
 
 const mouseoverChampionFunction = (event)=>{
-
+  const name = document.getElementById("name");
+  console.log(event);
+  name.innerHTML = event.target.title;
+  const pic = document.getElementById("profpic");
+  pic.src = event.target.src;
 }
 
 const clickChampionFunction = (event)=>{
   console.log(event.target.alt)
   const main = document.querySelector('main')
-  main.innerHTML = ''
+  //main.innerHTML = ''
   const name = document.createElement('h2')
   const title = document.createElement('h3')
   const splashPic = document.createElement('img')

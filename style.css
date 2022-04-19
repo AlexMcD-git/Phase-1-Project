@@ -15,3 +15,12 @@
     padding: 0px 10px;
   
   }
+  #featuredChampion {
+    border: 5px solid #FFFF00;
+    text-align: center;
+    align-items: start;
+    margin-left: 400px;
+  }
+  h2#featuredChampion{
+      font-size: x-large;
+  }

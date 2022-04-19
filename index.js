@@ -21,7 +21,7 @@ function fetchData(){
 
 const renderChamp = (champion)=>{
   const picURL = (champion.image.full)
-  const champDiv = document.createElement('div')
+  const champDiv = document.createElement('span')
   const pic = document.createElement('img')
   champDiv.appendChild(pic)
   pic.src = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`

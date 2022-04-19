@@ -21,13 +21,13 @@ function fetchData(){
 
 const renderChamp = (champion) => {
   const picURL = (champion.image.full)
-  console.log(champion)
+  // console.log(champion)
   const champDiv = document.createElement('span')
   const pic = document.createElement('img')
   champDiv.appendChild(pic)
   pic.src = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
-  pic.title = champion.id;
-  pic.id = champion.title;
+  pic.alt = champion.id
+  pic.title = champion.title
   pic.addEventListener('mouseover', mouseoverChampionFunction)
   pic.addEventListener('click', clickChampionFunction)
   document.getElementById('champs').appendChild(champDiv)
@@ -43,18 +43,20 @@ const mouseoverChampionFunction = (event)=>{
 }
 
 const clickChampionFunction = (event)=>{
-  console.log(event.target.alt)
-  const main = document.querySelector('main')
-  //main.innerHTML = ''
-  const name = document.createElement('h2')
-  const title = document.createElement('h3')
-  const splashPic = document.createElement('img')
+  const featured = document.querySelector('#featuredChampion')
+  featured.innerHTML = ''
+  const nameFeatured = document.createElement('h2')
+  const titleFeatured = document.createElement('h3')
+  const picFeatured = document.createElement('img')
   
   const statsObj = {}//Reference the champion's stats object
-  const statsList = document.createElement('ul')
+  const statsListFeatured = document.createElement('ul')
   //for...in on statsObj, append li element to statsList
-
-  main.append(name, title, splashPic, statsList)
+  console.log(championsObj[event.target.alt].title)
+  nameFeatured.textContent = championsObj[event.target.alt].name
+  titleFeatured.textContent = championsObj[event.target.alt].title
+  picFeatured.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${event.target.alt}_0.jpg`
+  featured.append(nameFeatured, titleFeatured, picFeatured, statsListFeatured)
 }
 
 

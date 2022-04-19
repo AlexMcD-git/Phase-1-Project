@@ -24,12 +24,18 @@ const renderChamp = (champion)=>{
   champDiv.appendChild(pic)
   pic.src = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
   pic.alt = champion
+  pic.addEventListener('mouseover', mouseoverChampionFunction)
+  pic.addEventListener('click', clickChampionFunction)
   document.getElementById('champs').appendChild(champDiv)
 }
 
+const mouseoverFunction = (event)=>{
+  
+}
 
+const clickChampionFunction = (event)=>{
 
-
+}
 
 
 

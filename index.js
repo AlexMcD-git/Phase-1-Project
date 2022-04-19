@@ -1,6 +1,9 @@
 apiKey = ``
 const buyableItems = []
 
+// hi alex i hope this works
+
+
 document.addEventListener('DOMContentLoaded', () => {
   fetch(`http://ddragon.leagueoflegends.com/cdn/12.7.1/data/en_US/champion.json`)
     .then(function (response) {

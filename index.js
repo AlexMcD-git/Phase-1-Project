@@ -19,15 +19,15 @@ function fetchData(){
   })
 }
 
-const renderChamp = (champion)=>{
+const renderChamp = (champion) => {
   const picURL = (champion.image.full)
   console.log(champion)
   const champDiv = document.createElement('span')
   const pic = document.createElement('img')
   champDiv.appendChild(pic)
   pic.src = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
-  pic.title = `${champion.id}
-  ${champion.title}`
+  pic.title = champion.id;
+  pic.id = champion.title;
   pic.addEventListener('mouseover', mouseoverChampionFunction)
   pic.addEventListener('click', clickChampionFunction)
   document.getElementById('champs').appendChild(champDiv)
@@ -35,9 +35,10 @@ const renderChamp = (champion)=>{
 
 const mouseoverChampionFunction = (event)=>{
   const name = document.getElementById("name");
-  console.log(event);
-  name.innerHTML = event.target.title;
+  const title = document.getElementById("title");
   const pic = document.getElementById("profpic");
+  name.innerHTML = event.target.title;
+  title.innerHTML = event.target.id;
   pic.src = event.target.src;
 }
 

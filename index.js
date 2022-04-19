@@ -1,4 +1,3 @@
-apiKey = ``
 const buyableItems = []
 
 // hi alex i hope this works
@@ -16,6 +15,26 @@ document.addEventListener('DOMContentLoaded', () => {
       for (champions in championsObj) { renderChamp(champions) }
     })
 
+})
+
+const renderChamp = (champion)=>{
+  const picURL = (championsObj[`${champion}`].image.full)
+  const champDiv = document.createElement('div')
+  const pic = document.createElement('img')
+  champDiv.appendChild(pic)
+  pic.src = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
+  pic.alt = champion
+  document.getElementById('champs').appendChild(champDiv)
+}
+
+
+
+
+
+
+
+
+
 
 //items stuff. maybe a further strech
 //   fetch(`http://ddragon.leagueoflegends.com/cdn/12.7.1/data/en_US/item.json`)
@@ -32,17 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //       }
 //       console.log(buyableItems)
 //   });
-})
-
-const renderChamp = (champion)=>{
-  const picURL = (championsObj[`${champion}`].image.full)
-  const champDiv = document.createElement('div')
-  const pic = document.createElement('img')
-  champDiv.appendChild(pic)
-  pic.src = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
-  pic.alt = champion
-  document.getElementById('champs').appendChild(champDiv)
-}
 
 // const renderItems = (item)=>{
 //   const picURL = (item[`${champion}`].image.full)

@@ -21,7 +21,6 @@ function fetchData(){
 
 const renderChamp = (champion) => {
   const picURL = (champion.image.full)
-  // console.log(champion)
   const champDiv = document.createElement('span')
   const pic = document.createElement('img')
   champDiv.appendChild(pic)
@@ -74,7 +73,7 @@ const clickChampionFunction = (event)=>{
     <li>Health per Level: ${statsObj.hpperlevel}</li>
     ${statsObj.mpperlevel?`<li>${resource} per Level: ${statsObj.mpperlevel}</li>`:``}
     <li>Attack Damage per Level: ${statsObj.attackdamageperlevel}</li>
-    <li>Attack Speed per Level: ${statsObj.attackspeedperlevel}</li>
+    <li>Attack Speed per Level: ${statsObj.attackspeedperlevel}%</li>
     <li>Armor per Level: ${statsObj.armorperlevel}</li>
     <li>Magic Resist per Level: ${statsObj.spellblockperlevel}</li>
     <li>Health Regeneration per Level: ${statsObj.hpregenperlevel}</li>
@@ -85,7 +84,7 @@ const clickChampionFunction = (event)=>{
   titleFeatured.innerHTML = `<em>${featuredObject.title}</em>`
 
   picFeatured.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${event.target.alt}_0.jpg`
-  featured.append(nameFeatured, titleFeatured, picFeatured, statsListFeatured, scalingStats)
+  featured.append(nameFeatured, titleFeatured, statsListFeatured,picFeatured, scalingStats)
 }
 
 

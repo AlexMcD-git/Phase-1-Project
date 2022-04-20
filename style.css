@@ -24,17 +24,18 @@
     list-style-type: none
   }
 
-  #featuredChampion ul{
-    list-style-type: none; /* Remove bullets */
-    padding:0;
-  }
+#featuredChampion ul {
+    list-style-type: none;/* Remove bullets */
+    padding: 50px;
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;
+}
 
-  /* ul.baseStats{
-      float:left;
-      text-align: ru;
-      margin-left: 20%;
-  }
-  ul.scalingStats{
-      float:right;
-      margin-right: 20%;
-  } */
+ul.baseStats {
+    text-align: right;
+}
+
+ul.scalingStats {
+    text-align: left;
+}

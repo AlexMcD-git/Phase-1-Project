@@ -37,8 +37,8 @@ const mouseoverChampionFunction = (event)=>{
   const name = document.getElementById("name");
   const title = document.getElementById("title");
   const pic = document.getElementById("profpic");
-  name.innerHTML = event.target.title;
-  title.innerHTML = event.target.id;
+  name.innerHTML = event.target.alt;
+  title.innerHTML = event.target.title;
   pic.src = event.target.src;
 }
 

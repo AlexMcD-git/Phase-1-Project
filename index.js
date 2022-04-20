@@ -62,17 +62,9 @@ const clickChampionFunction = (event)=>{
   const scalingStats = document.createElement('ul')
   scalingStats.className = `scalingStats`
 
-  statsListFeatured.innerHTML = `
-    <li>Health: ${statsObj.hp}</li>
-    <li>${resource}: ${statsObj.mp}</li>
-    <li>Attack Damage: ${statsObj.attackdamage}</li>
-    <li>Attack Speed: ${statsObj.attackspeed}</li>
-    <li>Armor: ${statsObj.armor}</li>
-    <li>Magic Resist: ${statsObj.spellblock}</li>
-    <li>Movement Speed: ${statsObj.movespeed}</li>
-    <li>Health Regeneration: ${statsObj.hpregen}</li>
-    ${statsObj.mpregen?`<li>${resource} Regeneration: ${statsObj.mpregen}</li>`:``}
-  `
+  statsListFeatured.innerHTML = statsRender(featuredObject.stats, featuredObject.partype, 1)
+
+  //this is not dynamic so there is no reason to give it the same treatment
   scalingStats.innerHTML =`
     <li>Health per Level: ${statsObj.hpperlevel}</li>
     ${statsObj.mpperlevel?`<li>${resource} per Level: ${statsObj.mpperlevel}</li>`:``}
@@ -83,17 +75,42 @@ const clickChampionFunction = (event)=>{
     <li>Health Regeneration per Level: ${statsObj.hpregenperlevel}</li>
     ${statsObj.mpregenperlevel?`<li>${resource} Regeneration per Level: ${statsObj.mpregenperlevel}</li>`:``}
   `
-
   nameFeatured.textContent = featuredObject.name
   titleFeatured.innerHTML = `<em>${featuredObject.title}</em>`
-
   picFeatured.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${event.target.alt}_0.jpg`
-  featured.append(nameFeatured, titleFeatured, statsListFeatured,picFeatured, scalingStats)
+
+  levelSlider = document.createElement('form')
+  levelSlider.innerHTML = `<input type="range" min="1" max="18" value="1" class="slider" id="myRange">`
+  levelSlider.obj = featuredObject
+  levelSlider.addEventListener('input', updateValue)
+
+  levelDisplay = document.createElement('p')
+  levelDisplay.textContent = `Level: 1`
+
+  featured.append(nameFeatured, titleFeatured, statsListFeatured, picFeatured, scalingStats, levelDisplay, levelSlider)
 }
 
+function updateValue(event){
+  levelDisplay.textContent = `Level: ${event.target.value}`
+  document.querySelector(`.baseStats`).innerHTML = statsRender(this.obj.stats, this.obj.partype, event.target.value)
+}
 
-
-
+function statsRender(statsObj, resource, level){
+  console.log(statsObj)
+  const htmlString = 
+  `
+    <li>Health: ${statsObj.hp+(statsObj.hpperlevel*(level-1))}</li>
+    ${statsObj.mp?`<li>${resource}: ${statsObj.mp+(statsObj.mpperlevel*(level-1))}</li>`:``}
+    <li>Attack Damage: ${(statsObj.attackdamage+(statsObj.attackdamageperlevel*(level-1))).toFixed(0)}</li>
+    <li>Attack Speed: ${(statsObj.attackspeed+((statsObj.attackspeed*(statsObj.attackspeedperlevel/100))*(level-1))).toFixed(3)}</li>
+    <li>Armor: ${(statsObj.armor+(statsObj.armorperlevel*(level-1))).toFixed(0)}</li>
+    <li>Magic Resist: ${(statsObj.spellblock+(statsObj.spellblockperlevel*(level-1))).toFixed(0)}</li>
+    <li>Movement Speed: ${statsObj.movespeed}</li>
+    <li>Health Regeneration: ${(statsObj.hpregen+(statsObj.hpregenperlevel*(level-1))).toFixed(1)}</li>
+    ${statsObj.mpregen?`<li>${resource} Regeneration: ${(statsObj.mpregen+(statsObj.mpregenperlevel*(level-1))).toFixed(1)}</li>`:``}
+  `
+  return htmlString
+}
 
 
 //items stuff. maybe a further strech

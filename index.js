@@ -55,9 +55,9 @@ const clickChampionFunction = (event)=>{
   
   //split into base stats and scaling stats to make level slider easier to (implement if we get there) without adding any  real difficulty here
   const statsListFeatured = document.createElement('ul')
-  statsListFeatured.className = `no-bullets`
+  statsListFeatured.className = `baseStats`
   const scalingStats = document.createElement('ul')
-  scalingStats.className = `no-bullets`
+  scalingStats.className = `scalingStats`
 
   statsListFeatured.innerHTML = `
     <li>Health: ${statsObj.hp}</li>

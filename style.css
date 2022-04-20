@@ -15,17 +15,26 @@
     padding: 0px 10px;
   
   }
+
   #featuredChampion {
     border: 5px solid #FFFF00; /*placeholder so i can see what the area is like*/
     text-align: center;
     align-items: start;
-    margin-left: 400px;
-  }
-  #featuredChampion h2{
+    margin-left: 250px;
+    list-style-type: none
   }
 
-  ul.no-bullets {
+  #featuredChampion ul{
     list-style-type: none; /* Remove bullets */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margins */
+    padding:0;
   }
+
+  /* ul.baseStats{
+      float:left;
+      text-align: ru;
+      margin-left: 20%;
+  }
+  ul.scalingStats{
+      float:right;
+      margin-right: 20%;
+  } */

@@ -44,19 +44,48 @@ const mouseoverChampionFunction = (event)=>{
 
 const clickChampionFunction = (event)=>{
   const featured = document.querySelector('#featuredChampion')
+  const featuredObject = championsObj[event.target.alt]
   featured.innerHTML = ''
   const nameFeatured = document.createElement('h2')
   const titleFeatured = document.createElement('h3')
   const picFeatured = document.createElement('img')
+
+  const resource = featuredObject.partype
+  const statsObj = {...featuredObject.stats}
   
-  const statsObj = {}//Reference the champion's stats object
+  //split into base stats and scaling stats to make level slider easier to (implement if we get there) without adding any  real difficulty here
   const statsListFeatured = document.createElement('ul')
-  //for...in on statsObj, append li element to statsList
-  console.log(championsObj[event.target.alt].title)
-  nameFeatured.textContent = championsObj[event.target.alt].name
-  titleFeatured.textContent = championsObj[event.target.alt].title
+  statsListFeatured.className = `no-bullets`
+  const scalingStats = document.createElement('ul')
+  scalingStats.className = `no-bullets`
+
+  statsListFeatured.innerHTML = `
+    <li>Health: ${statsObj.hp}</li>
+    <li>${resource}: ${statsObj.mp}</li>
+    <li>Attack Damage: ${statsObj.attackdamage}</li>
+    <li>Attack Speed: ${statsObj.attackspeed}</li>
+    <li>Armor: ${statsObj.armor}</li>
+    <li>Magic Resist: ${statsObj.spellblock}</li>
+    <li>Movement Speed: ${statsObj.movespeed}</li>
+    <li>Health Regeneration: ${statsObj.hpregen}</li>
+    ${statsObj.mpregen?`<li>${resource} Regeneration: ${statsObj.mpregen}</li>`:``}
+  `
+  scalingStats.innerHTML =`
+    <li>Health per Level: ${statsObj.hpperlevel}</li>
+    ${statsObj.mpperlevel?`<li>${resource} per Level: ${statsObj.mpperlevel}</li>`:``}
+    <li>Attack Damage per Level: ${statsObj.attackdamageperlevel}</li>
+    <li>Attack Speed per Level: ${statsObj.attackspeedperlevel}</li>
+    <li>Armor per Level: ${statsObj.armorperlevel}</li>
+    <li>Magic Resist per Level: ${statsObj.spellblockperlevel}</li>
+    <li>Health Regeneration per Level: ${statsObj.hpregenperlevel}</li>
+    ${statsObj.mpregenperlevel?`<li>${resource} Regeneration per Level: ${statsObj.mpregenperlevel}</li>`:``}
+  `
+
+  nameFeatured.textContent = featuredObject.name
+  titleFeatured.innerHTML = `<em>${featuredObject.title}</em>`
+
   picFeatured.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${event.target.alt}_0.jpg`
-  featured.append(nameFeatured, titleFeatured, picFeatured, statsListFeatured)
+  featured.append(nameFeatured, titleFeatured, picFeatured, statsListFeatured, scalingStats)
 }
 
 

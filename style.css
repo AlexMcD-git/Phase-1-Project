@@ -16,11 +16,16 @@
   
   }
   #featuredChampion {
-    border: 5px solid #FFFF00;
+    border: 5px solid #FFFF00; /*placeholder so i can see what the area is like*/
     text-align: center;
     align-items: start;
     margin-left: 400px;
   }
-  h2#featuredChampion{
-      font-size: x-large;
+  #featuredChampion h2{
+  }
+
+  ul.no-bullets {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
   }

@@ -33,12 +33,16 @@ const renderChamp = (champion) => {
 }
 
 const mouseoverChampionFunction = (event)=>{
-  const name = document.getElementById("name");
-  const title = document.getElementById("title");
-  const pic = document.getElementById("profpic");
-  name.innerHTML = event.target.alt;
-  title.innerHTML = event.target.title;
-  pic.src = event.target.src;
+  const featuredObject = championsObj[event.target.alt];
+  document.getElementById("name").innerHTML = featuredObject.name;
+  document.getElementById("title").innerHTML = featuredObject.title
+  document.getElementById("profpic").src = event.target.src;
+
+  document.getElementById("attack").innerHTML = `Attack Damage: ${featuredObject.info.attack}`;
+  document.getElementById("spell").innerHTML = `Spell Damage: ${featuredObject.info.defense}`;
+  document.getElementById("defense").innerHTML = `Defense: ${featuredObject.info.defense}`;
+  document.getElementById("difficulty").innerHTML = `Difficulty: ${featuredObject.info.difficulty}`;
+  console.log(featuredObject)
 }
 
 const clickChampionFunction = (event)=>{

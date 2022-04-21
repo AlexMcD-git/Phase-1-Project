@@ -21,12 +21,8 @@ function fetchData(){
 }
 
 const addFavorite = (event) => {
-  //const currentChampInfo = getelementby//might need help grabbing the proper 
-  //should refactor renderChamp to be able to use it here as well
-  const championCopy = document.getElementById('mainPic').alt;//should
-  const tempvar = document.getElementById(championCopy);
-  console.log(tempvar)
-  document.getElementById('favorites').appendChild(tempvar);
+  const championID = document.getElementById('mainPic').alt;
+  document.getElementById('favorites').appendChild(document.getElementById(championID));
 }
 
 const renderChamp = (champion) => {

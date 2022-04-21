@@ -2,8 +2,8 @@
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 250px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    z-index: 1;
+    top: 0;
     left: 0;
     background: rgb(2,0,36);
 background: linear-gradient(0deg,  rgb(27, 36, 56) 0%, rgba(237,213,35,1) 50%);
@@ -27,7 +27,7 @@ background: linear-gradient(0deg,  rgb(27, 36, 56) 0%, rgba(237,213,35,1) 50%);
   }
 
   #featuredChampion {
-    border: 5px solid #FFFF00; /*placeholder so i can see what the area is like*/
+    border: 5px solid #07a0bb; /*placeholder so i can see what the area is like*/
     text-align: center;
     align-items: start;
     margin-left: 250px;

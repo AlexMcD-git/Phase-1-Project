@@ -13,8 +13,8 @@ function fetchData(){
     for (champions in championsObj) { 
       championsArray.push(championsObj[champions]) 
     }
-    console.log(championsObj)
-    console.log(championsArray)
+    //console.log(championsObj)
+    //console.log(championsArray)
     championsArray.forEach(renderChamp)
     document.getElementById('favorite').addEventListener('click', addFavorite)
   })
@@ -49,7 +49,6 @@ const mouseoverChampionFunction = (event)=>{
   document.getElementById("spell").innerHTML = `Spell Damage: ${featuredObject.info.defense}`;
   document.getElementById("defense").innerHTML = `Defense: ${featuredObject.info.defense}`;
   document.getElementById("difficulty").innerHTML = `Difficulty: ${featuredObject.info.difficulty}`;
-  console.log(featuredObject)
 }
 
 const clickChampionFunction = (event)=>{
@@ -105,7 +104,6 @@ function updateValue(event){
 }
 
 function statsRender(statsObj, resource, level){
-  console.log(statsObj)
   const htmlString = 
   `
     <li>Health: ${statsObj.hp+(statsObj.hpperlevel*(level-1))}</li>

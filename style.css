@@ -6,7 +6,7 @@
     top: 0; /* Stay at the top */
     left: 0;
     background: rgb(2,0,36);
-background: linear-gradient(0deg,  rgba(29,20,50,1) 0%, rgba(237,213,35,1) 45%);
+background: linear-gradient(0deg,  rgb(27, 36, 56) 0%, rgba(237,213,35,1) 50%);
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
   }

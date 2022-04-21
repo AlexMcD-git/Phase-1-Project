@@ -16,7 +16,17 @@ function fetchData(){
     console.log(championsObj)
     console.log(championsArray)
     championsArray.forEach(renderChamp)
+    document.getElementById('favorite').addEventListener('click', addFavorite)
   })
+}
+
+const addFavorite = (event) => {
+  //const currentChampInfo = getelementby//might need help grabbing the proper 
+  //should refactor renderChamp to be able to use it here as well
+  const championCopy = document.getElementById('mainPic').alt;//should
+  const tempvar = document.getElementById(championCopy);
+  console.log(tempvar)
+  document.getElementById('favorites').appendChild(tempvar);
 }
 
 const renderChamp = (champion) => {
@@ -25,6 +35,7 @@ const renderChamp = (champion) => {
   const pic = document.createElement('img')
   champDiv.appendChild(pic)
   pic.src = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
+  pic.id = champion.id
   pic.alt = champion.id
   pic.title = champion.title
   pic.addEventListener('mouseover', mouseoverChampionFunction)
@@ -78,6 +89,8 @@ const clickChampionFunction = (event)=>{
   nameFeatured.textContent = featuredObject.name
   titleFeatured.innerHTML = `<em>${featuredObject.title}</em>`
   picFeatured.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${event.target.alt}_0.jpg`
+  picFeatured.alt = featuredObject.id
+  picFeatured.id = "mainPic"
 
   levelSlider = document.createElement('form')
   levelSlider.innerHTML = `<input type="range" min="1" max="18" value="1" class="slider" id="myRange">`

@@ -3,7 +3,7 @@ const championsArray = []
 document.addEventListener('DOMContentLoaded', fetchData)
 
 function fetchData(){
-  fetch(`http://ddragon.leagueoflegends.com/cdn/12.7.1/data/en_US/champion.json`)
+  fetch(`https://ddragon.leagueoflegends.com/cdn/12.7.1/data/en_US/champion.json`)
   .then((response)=>{
     return response.json();
   })
@@ -30,7 +30,7 @@ const renderChamp = (champion) => {
   const champDiv = document.createElement('span')
   const pic = document.createElement('img')
   champDiv.appendChild(pic)
-  pic.src = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
+  pic.src = `https://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
   pic.id = champion.id
   pic.alt = champion.id
   pic.title = champion.title
@@ -83,7 +83,7 @@ const clickChampionFunction = (event)=>{
   `
   nameFeatured.textContent = featuredObject.name
   titleFeatured.innerHTML = `<em>${featuredObject.title}</em>`
-  picFeatured.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${event.target.alt}_0.jpg`
+  picFeatured.src = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${event.target.alt}_0.jpg`
   picFeatured.alt = featuredObject.id
   picFeatured.id = "mainPic"
 
@@ -121,7 +121,7 @@ function statsRender(statsObj, resource, level){
 
 
 //items stuff. maybe a further strech
-//   fetch(`http://ddragon.leagueoflegends.com/cdn/12.7.1/data/en_US/item.json`)
+//   fetch(`https://ddragon.leagueoflegends.com/cdn/12.7.1/data/en_US/item.json`)
 //   .then(function (response) {
 //     return response.json();
 //   })
@@ -141,6 +141,6 @@ function statsRender(statsObj, resource, level){
 //   const itemDiv = document.createElement('div')
 //   const pic = document.createElement('img')
 //   picDiv.appendChild(pic)
-//   pic.src = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
+//   pic.src = `https://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/${picURL}`
 //   document.getElementById('champs').appendChild(champDiv)
 
